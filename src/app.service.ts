@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
 
-  private names: string[] = ["Carlos","Diana","Gabriel", "María Alejandra"];
+  private names: string[] = [];
 
   getHelloMethod(): string[] {
     return this.names;

@@ -1,17 +1,16 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { StudentModule } from './student/student.module';
+import { ReservaModule } from './reserva/reserva.module';
 import {ConfigModule} from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
-import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    StudentModule,
+    ReservaModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DATABASE_HOST,
@@ -24,7 +23,6 @@ import { ProductModule } from './product/product.module';
     }),
     UserModule,
     AuthModule,
-    ProductModule  
   ],
   controllers: [AppController],
   providers: [AppService],

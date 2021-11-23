@@ -1,7 +1,8 @@
 import { BeforeInsert, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import * as bcrypt from 'bcrypt';
 import { Role } from "./user.enum";
-import { ProductEntity } from "src/product/entities/product.entity";
+import { ReservaEntity } from "src/reserva/models/reserva.entity";
+
 
 @Entity('users')
 export class UserEntity{
@@ -29,8 +30,8 @@ export class UserEntity{
     role: Role;
 
     // 1:n relation with ProductEntity
-    @OneToMany( type => ProductEntity, product => product.user)
-    products: ProductEntity[];
+    @OneToMany( type => ReservaEntity, reserva => reserva.nombre)
+    reservas: ReservaEntity[];
 
     @BeforeInsert()
     async hashPassword(){
